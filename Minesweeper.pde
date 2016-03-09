@@ -15,7 +15,7 @@ void setup ()
         buttons[r][c]=new MSButton(r,c);
     }
    }
-   for(int i=0;i<9;i++){
+   for(int i=0;i<99;i++){
         setBombs();
     }
 }
@@ -41,7 +41,7 @@ public boolean isWon()
 }
 public void displayLosingMessage()
 {
-    //your code here
+    noLoop();
 }
 public void displayWinningMessage()
 {
@@ -78,7 +78,7 @@ public class MSButton
     public void mousePressed () 
     {
         clicked = true;
-        if(keyPressed){
+        if(keyPressed&&!label.contains(""+countBombs(r,c))){
             marked=!marked;
         }
         else if(bombs.contains(this)){
@@ -118,7 +118,7 @@ public class MSButton
     public void draw () 
     {    
         if (marked)
-            fill(0);
+            fill(194, 110, 110);
         else if( clicked && bombs.contains(this) ) 
              fill(255,0,0);
         else if(clicked)
