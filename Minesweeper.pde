@@ -5,7 +5,7 @@ private MSButton[][] buttons; //2d array of minesweeper buttons
 private ArrayList <MSButton> bombs=new ArrayList<MSButton>(); //ArrayList of just the minesweeper buttons that are mined
 void setup ()
 {
-    size(400, 400);
+    size(500, 500);
     textAlign(CENTER,CENTER);
     // make the manager
     Interactive.make( this );
@@ -15,7 +15,7 @@ void setup ()
         buttons[r][c]=new MSButton(r,c);
     }
    }
-   for(int i=0;i<99;i++){
+   for(int i=0;i<19;i++){
         setBombs();
     }
 }
@@ -36,16 +36,27 @@ public void draw ()
 }
 public boolean isWon()
 {
-    //if()
+    int dead=0;
+    for(int i=0;i<bombs.size();i++){
+        if(bombs.get(i).isMarked()){
+            dead++;
+        }
+    }
+    if(dead==bombs.size()){
+        return true;
+    }
     return false;
 }
 public void displayLosingMessage()
 {
     noLoop();
+    fill(123,31,13);
+    text("YOU LOSE",200,450);
 }
 public void displayWinningMessage()
 {
-    
+    fill(123,31,13);
+    text("YOU WIN",200,450);
 }
 public class MSButton
 {
