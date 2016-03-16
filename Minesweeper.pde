@@ -15,7 +15,7 @@ void setup ()
         buttons[r][c]=new MSButton(r,c);
     }
    }
-   for(int i=0;i<19;i++){
+   for(int i=0;i<99;i++){
         setBombs();
     }
 }
@@ -26,7 +26,6 @@ public void setBombs()
     if(!bombs.contains(buttons[r][c])){
         bombs.add(buttons[r][c]);
     }
-    System.out.println(r+","+c);
 }
 public void draw ()
 {
