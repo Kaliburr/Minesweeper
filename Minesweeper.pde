@@ -5,7 +5,7 @@ private MSButton[][] buttons; //2d array of minesweeper buttons
 private ArrayList <MSButton> bombs=new ArrayList<MSButton>(); //ArrayList of just the minesweeper buttons that are mined
 void setup ()
 {
-    size(500, 500);
+    size(400, 500);
     textAlign(CENTER,CENTER);
     // make the manager
     Interactive.make( this );
@@ -32,30 +32,6 @@ public void draw ()
     background( 0 );
     if(isWon())
         displayWinningMessage();
-}
-public boolean isWon()
-{
-    int dead=0;
-    for(int i=0;i<bombs.size();i++){
-        if(bombs.get(i).isMarked()){
-            dead++;
-        }
-    }
-    if(dead==bombs.size()){
-        return true;
-    }
-    return false;
-}
-public void displayLosingMessage()
-{
-    noLoop();
-    fill(123,31,13);
-    text("YOU LOSE",200,450);
-}
-public void displayWinningMessage()
-{
-    fill(123,31,13);
-    text("YOU WIN",200,450);
 }
 public class MSButton
 {
@@ -131,6 +107,7 @@ public class MSButton
             fill(194, 110, 110);
         else if( clicked && bombs.contains(this) ) 
              fill(255,0,0);
+
         else if(clicked)
             fill( 200 );
         else 
@@ -181,3 +158,35 @@ public class MSButton
         return numBombs;
     }
 } 
+public boolean isWon()
+{
+    int dead=0;
+    for(int i=0;i<bombs.size();i++){
+        if(bombs.get(i).isMarked()){
+            dead++;
+        }
+    }
+    if(dead==bombs.size()){
+        return true;
+    }
+    return false;
+}
+public void displayLosingMessage()
+{
+    noLoop();
+    fill(123,31,13);
+    text("YOU LOSE",200,450);
+    for(int r=0;r<20;r++){
+        for(int c=0;c<20;c++){
+            if(bombs.contains(buttons[r][c])&&!buttons[r][c].isClicked()){
+                buttons[r][c].marked=false;
+                buttons[r][c].clicked=true;
+            }
+        }
+    }
+}
+public void displayWinningMessage()
+{
+    fill(123,31,13);
+    text("YOU WIN",200,450);
+}
