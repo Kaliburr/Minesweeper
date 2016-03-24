@@ -165,15 +165,15 @@ public class MSButton
 public boolean isWon()
 {
     int dead=0;
-    for(int i=0;i<bombs.size();i++){
-        if(bombs.get(i).isMarked()){
-            dead++;
+    for(int r=0;r<NUM_ROWS;r++){
+        for(int c=0;c<NUM_COLS;c++){
+         if(!buttons[r][c].isClicked()&&!bombs.contains(buttons[r][c])){
+            return false;
+         }
         }
     }
-    if(dead==bombs.size()){
-        return true;
-    }
-    return false;
+    
+    return true;
 }
 public void displayLosingMessage()
 {
