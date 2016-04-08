@@ -181,8 +181,7 @@ public void displayLosingMessage()
     text("YOU LOSE",200,450);
     for(int r=0;r<20;r++){
         for(int c=0;c<20;c++){
-            if(bombs.contains(buttons[r][c])//&&!buttons[r][c].isClicked()
-                )
+            if(bombs.contains(buttons[r][c])                )
             {
                 /*buttons[r][c].marked=false;
                 buttons[r][c].clicked=true;*/
