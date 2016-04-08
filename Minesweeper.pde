@@ -14,7 +14,7 @@ void setup ()
     for(int r=0;r<20;r++){
      for(int c=0;c<20;c++){
         buttons[r][c]=new MSButton(r,c);
-     }
+     } 
     }
    
         setBombs();
@@ -64,7 +64,6 @@ public class MSButton
     {
         return clicked;
     }
-    // called by manager
     public void mousePressed () 
     {
         clicked = true;
@@ -164,7 +163,7 @@ public class MSButton
 } 
 public boolean isWon()
 {
-    int dead=0;
+    
     for(int r=0;r<NUM_ROWS;r++){
         for(int c=0;c<NUM_COLS;c++){
          if(!buttons[r][c].isClicked()&&!bombs.contains(buttons[r][c])){
@@ -182,9 +181,12 @@ public void displayLosingMessage()
     text("YOU LOSE",200,450);
     for(int r=0;r<20;r++){
         for(int c=0;c<20;c++){
-            if(bombs.contains(buttons[r][c])&&!buttons[r][c].isClicked()){
-                buttons[r][c].marked=false;
-                buttons[r][c].clicked=true;
+            if(bombs.contains(buttons[r][c])//&&!buttons[r][c].isClicked()
+                )
+            {
+                /*buttons[r][c].marked=false;
+                buttons[r][c].clicked=true;*/
+                buttons[r][c].setLabel("B");
             }
         }
     }
