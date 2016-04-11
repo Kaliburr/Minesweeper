@@ -67,11 +67,11 @@ public void displayLosingMessage()
     for(int i = 0; i < lose.length(); i++)
     {
         buttons[10][i+5].clicked = true;
-        if(!bombs.contains(buttons[10][6+i]))
+        if(!bombs.contains(buttons[10][i+5]))
         {
-            bombs.add(buttons[10][6+i]);
+            bombs.add(buttons[10][i+5]);
         }
-        buttons[10][6+i].setLabel(lose.substring(i,i+1));
+        buttons[10][i+5].setLabel(lose.substring(i,i+1));
     }
 }
 public void displayWinningMessage()
