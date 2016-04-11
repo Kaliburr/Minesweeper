@@ -63,7 +63,7 @@ public void displayLosingMessage()
             }
         }
     }
-    String lose = new String("You lose!");
+    String lose = new String("You lose");
     for(int i = 0; i < lose.length(); i++)
     {
         buttons[10][i+5].clicked = true;
