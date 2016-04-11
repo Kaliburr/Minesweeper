@@ -76,15 +76,15 @@ public void displayLosingMessage()
 }
 public void displayWinningMessage()
 {
-    String win = new String("You win!");
+    String win = new String("You win");
     for(int i = 0; i < win.length(); i++)
     {
         buttons[10][i+5].clicked = true;
-        if(!bombs.contains(buttons[10][6+i]))
+        if(!bombs.contains(buttons[10][i+5]))
         {
-            bombs.add(buttons[10][6+i]);
+            bombs.add(buttons[10][i+5]);
         }
-        buttons[10][6+i].setLabel(win.substring(i,i+1));
+        buttons[10][i+5].setLabel(win.substring(i,i+1));
     }
 }
 public class MSButton
