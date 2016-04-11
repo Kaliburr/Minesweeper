@@ -17,7 +17,7 @@ void setup ()
             buttons[r][c] = new MSButton(r, c);
         }
     }
-    for(int i = 0; i < 20; i++)
+    for(int i = 0; i < 200; i++)
     {
         setBombs();
     }
