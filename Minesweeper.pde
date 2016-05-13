@@ -167,9 +167,9 @@ public class MSButton
         else if(clicked)
             fill(205,17,0);
         else 
-            fill(159,247,0);
+            fill(205,93,0);
         rect(x, y, width, height);
-        fill(205,93,0);
+        fill(159,247,0);
         text(label,x+width/2,y+height/2);
     }
     public void setLabel(String newLabel)
